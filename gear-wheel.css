@@ -1,0 +1,180 @@
+/* ═══════════════════════════════════════════════════════════════
+   🎡 SPORT GEAR WHEEL - Sport Hub Style Radial Menu
+   ═══════════════════════════════════════════════════════════════ */
+
+#gear-wheel-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+        radial-gradient(circle at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.65) 100%),
+        rgba(0, 0, 0, 0.5);
+    z-index: 99999;
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#gear-wheel-container.hiding {
+    opacity: 0;
+}
+
+#gear-wheel {
+    position: relative;
+    width: 500px;
+    height: 500px;
+}
+
+/* Outer ring for wheel */
+#gear-wheel::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 105, 180, 0.5);
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.4),
+                inset 0 0 30px rgba(255, 105, 180, 0.1);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Center Circle */
+.wheel-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 50%;
+    border: 2px solid rgba(255, 105, 180, 0.8);
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.6),
+                inset 0 0 15px rgba(255, 105, 180, 0.3);
+    z-index: 10;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Gear Segments */
+.gear-segment {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+    z-index: 2;
+    pointer-events: all;
+}
+
+/* Division lines are now created as separate elements in JS */
+/* No longer using ::before pseudo-element to avoid clip-path issues */
+
+/* Gear Icon Container - Now positioned absolutely in separate container */
+.gear-icon-container {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+/* Icons container styling */
+#wheel-icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9;
+}
+
+.gear-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.6));
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.gear-segment:hover .gear-icon,
+.gear-segment.hover .gear-icon {
+    filter: drop-shadow(0 0 20px rgba(255, 105, 180, 1))
+            drop-shadow(0 0 30px rgba(255, 105, 180, 0.8));
+}
+
+/* Gear Label - Hidden (not using text labels) */
+.gear-label {
+    display: none;
+}
+
+/* Disabled Gear (resource not available or no item) */
+.gear-segment.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.gear-segment.disabled:hover {
+    transform: none;
+}
+
+.gear-segment.disabled .gear-icon-container {
+    background: linear-gradient(135deg, #555, #333);
+}
+
+/* Center Instructions */
+.wheel-instructions {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    pointer-events: none;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+/* Smooth Fade In Animation */
+@keyframes fadeInBackground {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.92) translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+#gear-wheel-container {
+    animation: fadeInBackground 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#gear-wheel {
+    animation: slideIn 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}

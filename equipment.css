@@ -1,0 +1,721 @@
+/* ═══════════════════════════════════════════════════════════════
+   🛡️ EQUIPMENT SYSTEM - Matching Sport Hub Design
+   White/Gray Glassmorphism | Small Sidebar | Smooth Animations
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Equipment Container - Sidebar Style (matches #menuBox) */
+#equipmentContainer {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    width: 380px;
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.96) 0%,
+        rgba(248, 248, 248, 0.94) 100%);
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15),
+                0 5px 20px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    padding: 30px;
+    color: #1a1a1a;
+    display: none;
+    z-index: 9999;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    max-height: 90vh;
+}
+
+#equipmentContainer.visible {
+    opacity: 1;
+}
+
+/* Background Decoration */
+.equipment-background-decoration {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    width: 500px;
+    height: 500px;
+    background-image: url('images/stacked-gear.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Equipment Header */
+.equipment-header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 25px;
+    z-index: 1;
+}
+
+.equipment-title {
+    font-family: 'JackSilver', sans-serif;
+    font-size: 36px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+    text-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+    animation: slideInLeft 0.6s ease-out;
+}
+
+.equipment-subtitle {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* Close Button (X) - HIDDEN (use back button instead) */
+.equipment-close-btn {
+    display: none !important;
+}
+
+/* Back Button (Arrow) - Top Left */
+.equipment-back-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(245, 245, 245, 0.9) 100%);
+    border: 2px solid rgba(255, 105, 180, 0.4);
+    color: #1a1a1a;
+    font-size: 18px;
+    cursor: pointer;
+    display: none; /* Hidden by default, shown when needed */
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.equipment-back-btn:hover {
+    border-color: rgba(255, 105, 180, 0.8);
+    transform: translateX(-5px);
+    box-shadow: 0 6px 25px rgba(255, 105, 180, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* Equipment Pages */
+.equipment-page {
+    display: none;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    padding: 10px 0;
+    max-height: calc(90vh - 160px);
+    overflow: hidden;
+}
+
+.equipment-page.active {
+    display: flex;
+}
+
+/* Model Selection Page - Fixed layout with scroll grid */
+#equipmentModelSelection {
+    display: flex;
+    flex-direction: column;
+    max-height: calc(90vh - 160px);
+}
+
+#equipmentModelSelection.active {
+    display: flex;
+}
+
+/* Sport/Category Grid - Vertical buttons (no scroll needed) */
+#equipmentSportGrid,
+#equipmentCategoryGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.equipment-sport-card,
+.equipment-category-card {
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(245, 245, 245, 0.9) 100%);
+    border: 2px solid rgba(255, 105, 180, 0.4);
+    border-radius: 15px;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: border-color 0.15s ease-out, box-shadow 0.15s ease-out, background 0.15s ease-out;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3),
+                0 2px 8px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.equipment-sport-card:hover,
+.equipment-category-card:hover {
+    border-color: rgba(255, 105, 180, 1);
+    background: linear-gradient(135deg,
+        rgba(255, 240, 245, 0.98) 0%,
+        rgba(255, 230, 240, 0.95) 100%);
+    box-shadow: 0 6px 25px rgba(255, 105, 180, 0.5),
+                0 3px 12px rgba(255, 105, 180, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.equipment-sport-card img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    position: relative;
+    z-index: 1;
+}
+
+.equipment-sport-card span,
+.equipment-category-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+}
+
+.equipment-category-card h3 {
+    margin: 0;
+}
+
+.equipment-category-card p {
+    font-size: 13px;
+    color: #666;
+    margin: 5px 0 0 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Model Selection Grid - 2 columns with scroll */
+#equipmentModelGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 5px;
+    scroll-behavior: smooth;
+}
+
+.equipment-model-card {
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(245, 245, 245, 0.9) 100%);
+    border: 2px solid rgba(255, 105, 180, 0.4);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.equipment-model-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 105, 180, 0.8);
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.equipment-model-card.selected {
+    border-color: rgba(255, 105, 180, 0.9);
+    border-width: 3px;
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.equipment-model-card.owned::after {
+    content: '✓ Owned';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(6, 214, 160, 0.9);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.equipment-model-card.equipped::after {
+    content: '✓ Equipped';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(255, 105, 180, 0.9);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.equipment-model-card.exclusive {
+    border-color: rgba(0, 191, 255, 0.6);
+}
+
+.equipment-model-card.exclusive:hover {
+    border-color: rgba(0, 191, 255, 0.9);
+    box-shadow: 0 8px 25px rgba(0, 191, 255, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.equipment-model-card.exclusive::before {
+    content: '⭐ EXCLUSIVE';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: linear-gradient(135deg, rgba(0, 191, 255, 0.95) 0%, rgba(30, 144, 255, 0.95) 100%);
+    color: #ffffff;
+    padding: 3px 8px;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 191, 255, 0.5);
+}
+
+/* Model Preview Area */
+.equipment-model-preview {
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.equipment-model-preview img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.equipment-model-name {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #1a1a1a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    max-width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Bottom Action Buttons Area */
+.equipment-action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+    padding-top: 15px;
+    border-top: 2px solid rgba(255, 105, 180, 0.2);
+}
+
+/* Hide action buttons container when empty (no model selected) */
+.equipment-action-buttons:empty {
+    display: none;
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+/* Equipment Buttons */
+.equipment-btn {
+    width: 100%;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 2px solid transparent;
+}
+
+.equipment-btn.purchase {
+    background: linear-gradient(135deg, #00b4d8 0%, #0096c7 100%);
+    color: #ffffff;
+    border-color: rgba(0, 150, 199, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 180, 216, 0.3);
+}
+
+.equipment-btn.purchase:hover {
+    background: linear-gradient(135deg, #00d4ff 0%, #00b4d8 100%);
+    box-shadow: 0 6px 20px rgba(0, 180, 216, 0.5);
+    transform: translateY(-2px);
+}
+
+.equipment-btn.owned {
+    background: rgba(200, 200, 200, 0.5);
+    color: #666;
+    cursor: default;
+    border-color: rgba(200, 200, 200, 0.3);
+}
+
+.equipment-btn.equip {
+    background: linear-gradient(135deg, #06d6a0 0%, #048a6a 100%);
+    color: #ffffff;
+    border-color: rgba(6, 214, 160, 0.3);
+    box-shadow: 0 4px 12px rgba(6, 214, 160, 0.3);
+}
+
+.equipment-btn.equip:hover {
+    background: linear-gradient(135deg, #07ffbb 0%, #06d6a0 100%);
+    box-shadow: 0 6px 20px rgba(6, 214, 160, 0.5);
+    transform: translateY(-2px);
+}
+
+.equipment-btn.equipped {
+    background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+    color: #ffffff;
+    cursor: default;
+    border-color: rgba(255, 105, 180, 0.5);
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+}
+
+.equipment-btn.unequip {
+    background: linear-gradient(135deg, #ef233c 0%, #d90429 100%);
+    color: #ffffff;
+    border-color: rgba(239, 35, 60, 0.3);
+    box-shadow: 0 4px 12px rgba(239, 35, 60, 0.3);
+}
+
+.equipment-btn.unequip:hover {
+    background: linear-gradient(135deg, #ff4757 0%, #ef233c 100%);
+    box-shadow: 0 6px 20px rgba(239, 35, 60, 0.5);
+    transform: translateY(-2px);
+}
+
+.equipment-btn.unlock {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    color: #ffffff;
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+.equipment-btn.unlock:hover {
+    background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Scrollbar Styling */
+.equipment-page::-webkit-scrollbar,
+#equipmentModelGrid::-webkit-scrollbar {
+    width: 6px;
+}
+
+.equipment-page::-webkit-scrollbar-track,
+#equipmentModelGrid::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+.equipment-page::-webkit-scrollbar-thumb,
+#equipmentModelGrid::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.6) 0%, rgba(255, 20, 147, 0.6) 100%);
+    border-radius: 10px;
+}
+
+.equipment-page::-webkit-scrollbar-thumb:hover,
+#equipmentModelGrid::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.9) 0%, rgba(255, 20, 147, 0.9) 100%);
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50%) translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-50%) translateX(0);
+    }
+}
+
+/* Slide In from Left */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   🔒 LOCKED ITEMS (Tebex Integration)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Locked Model Card */
+.equipment-model-card.locked {
+    border-color: rgba(100, 100, 100, 0.4);
+    cursor: not-allowed;
+}
+
+.equipment-model-card.locked .equipment-model-preview img {
+    filter: grayscale(80%) brightness(0.6);
+}
+
+.equipment-model-card.locked:hover {
+    transform: none;
+    border-color: rgba(100, 100, 100, 0.6);
+    box-shadow: 0 4px 15px rgba(100, 100, 100, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* Lock Overlay */
+.equipment-lock-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg,
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(30, 30, 30, 0.8) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    z-index: 5;
+    backdrop-filter: blur(2px);
+}
+
+.equipment-lock-overlay i.fa-lock {
+    font-size: 20px;
+    color: #00bfff;
+    text-shadow: 0 2px 10px rgba(0, 191, 255, 0.5);
+}
+
+.equipment-lock-overlay .lock-text {
+    font-size: 10px;
+    font-weight: 700;
+    color: #00bfff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Unlock Button */
+.unlock-btn {
+    background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-transform: uppercase;
+    box-shadow: 0 3px 10px rgba(255, 105, 180, 0.4);
+}
+
+.unlock-btn:hover {
+    background: linear-gradient(135deg, #ff8dc7 0%, #ff69b4 100%);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.6);
+}
+
+.unlock-btn i {
+    font-size: 10px;
+}
+
+/* Preview Button (for locked items) */
+.preview-btn {
+    background: linear-gradient(135deg, #4a90d9 0%, #357abd 100%);
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-transform: uppercase;
+    box-shadow: 0 3px 10px rgba(74, 144, 217, 0.4);
+    margin-top: 6px;
+}
+
+.preview-btn:hover {
+    background: linear-gradient(135deg, #5ca0e9 0%, #4a90d9 100%);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(74, 144, 217, 0.6);
+}
+
+.preview-btn i {
+    font-size: 10px;
+}
+
+/* VIP Unlocked Badge (for exclusive items player owns) */
+.vip-unlocked-badge {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: linear-gradient(135deg, rgba(0, 191, 255, 0.95) 0%, rgba(30, 144, 255, 0.95) 100%);
+    color: #ffffff;
+    padding: 3px 8px;
+    border-radius: 8px;
+    font-size: 9px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    box-shadow: 0 2px 8px rgba(0, 191, 255, 0.5);
+    z-index: 3;
+}
+
+.vip-unlocked-badge i {
+    font-size: 8px;
+    color: #ffffff;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   🔔 NOTIFICATIONS
+   ═══════════════════════════════════════════════════════════════ */
+
+.equipment-notification {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    animation: slideUpFade 0.3s ease-out;
+}
+
+.equipment-notification.package-required .notification-content {
+    background: linear-gradient(135deg,
+        rgba(255, 100, 100, 0.95) 0%,
+        rgba(220, 50, 50, 0.95) 100%);
+    border-radius: 12px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    box-shadow: 0 5px 25px rgba(220, 50, 50, 0.4);
+}
+
+.equipment-notification .notification-content i.fa-lock {
+    font-size: 18px;
+}
+
+.equipment-notification .notification-content button {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    padding: 6px 12px;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.equipment-notification .notification-content button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.equipment-notification .notification-content button.close-btn {
+    padding: 6px 8px;
+    background: transparent;
+    border: none;
+}
+
+.equipment-notification .notification-content button.close-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Hide VIP badge on locked items (lock overlay handles it) */
+.equipment-model-card.locked::before {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #equipmentContainer {
+        width: 90%;
+        left: 5%;
+    }
+
+    #equipmentModelGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .equipment-notification {
+        width: 90%;
+        bottom: 10px;
+    }
+
+    .equipment-notification .notification-content {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+}
