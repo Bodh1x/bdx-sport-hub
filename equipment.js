@@ -774,7 +774,11 @@ function updateActionButtons() {
         } else {
             equipBtn.textContent = "Equip";
         }
-        equipBtn.onclick = () => equipModel(model);
+        console.log("Creating EQUIP button for model:", model);
+        equipBtn.onclick = function(e) {
+            console.log("EQUIP BUTTON CLICKED! Model:", model);
+            equipModel(model);
+        };
         actionButtonsContainer.appendChild(equipBtn);
 
     } else {
@@ -891,7 +895,17 @@ function purchaseModel(model) {
  * Equip equipment model
  */
 function equipModel(model) {
-    console.log("Equipping model:", model);
+    console.log("========================================");
+    console.log("equipModel CALLED");
+    console.log("  model:", model);
+    console.log("  sport:", EquipmentState.currentSport);
+    console.log("  category:", EquipmentState.currentCategory);
+    console.log("========================================");
+
+    if (!model) {
+        console.error("ERROR: model is undefined/null!");
+        return;
+    }
 
     // DON'T clear preview when equipping - keep equipment visible
     // The preview will remain attached as a visual representation
