@@ -6,13 +6,13 @@
 /* Define the JackSilver font */
 @font-face {
     font-family: 'JackSilver';
-    src: url('fonts/Jacksilver.ttf') format('truetype');
+    src: url('https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/fonts/Jacksilver.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'Juliett-Regular';
-    src: url('fonts/Juliett-Regular.ttf') format('truetype');
+    src: url('https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/fonts/Juliett-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -139,7 +139,7 @@ body {
     left: -10px;
     width: 800px;
     height: 800px;
-    background-image: url('images/main-back.png');
+    background-image: url('https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/main-back.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom left;
@@ -527,7 +527,7 @@ body {
     transform: translate(-50%, -50%) rotate(-15deg);
     width: 500px;
     height: 500px;
-    background-image: url('images/stacked-gear.png');
+    background-image: url('https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/stacked-gear.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
