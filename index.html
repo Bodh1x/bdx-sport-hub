@@ -1745,7 +1745,8 @@
                 // let fullPath = `nui://${resourceName}/nui/customs/${imagePath || ""}${prefix}${i}.png`;
 
                 let fullPath = `https://bodh1x.github.io/bdx-sport-hub/customs/${imagePath || ""}${prefix}${i}.png`;
-                
+
+                console.log(`🖼️ Image ${i} path:`, fullPath, "| imagePath:", imagePath, "| prefix:", prefix);
                 debugLog(`Image ${i} path:`, fullPath);
 
                 img.src = fullPath;
