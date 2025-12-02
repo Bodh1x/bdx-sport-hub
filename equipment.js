@@ -301,7 +301,7 @@ function showSportSelection(sports) {
             const sportCard = document.createElement("div");
             sportCard.className = "equipment-sport-card";
             sportCard.innerHTML = `
-                <img src="https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/${sport.image}" alt="${sport.name}">
+                <img src="https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/icons/${sport.image}" alt="${sport.name}">
                 <span>${sport.name}</span>
             `;
             sportCard.onclick = () => selectSport(sport.id);
