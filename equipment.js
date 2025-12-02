@@ -301,7 +301,7 @@ function showSportSelection(sports) {
             const sportCard = document.createElement("div");
             sportCard.className = "equipment-sport-card";
             sportCard.innerHTML = `
-                <img src="images/${sport.image}" alt="${sport.name}">
+                <img src="https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/${sport.image}" alt="${sport.name}">
                 <span>${sport.name}</span>
             `;
             sportCard.onclick = () => selectSport(sport.id);
@@ -423,7 +423,7 @@ function showModelSelection(models) {
             ` : '';
 
             // Build image path - handle model names with or without prefixes
-            const imagePath = `images/Equipment/${folderName}/${imageModelName}.png`;
+            const imagePath = `https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/Equipment/${folderName}/${imageModelName}.png`;
 
             modelCard.innerHTML = `
                 <div class="equipment-model-preview">
