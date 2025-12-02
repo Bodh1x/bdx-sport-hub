@@ -40,7 +40,7 @@
     transform: translate(-50%, -50%) rotate(-15deg);
     width: 500px;
     height: 500px;
-    background-image: url('images/stacked-gear.png');
+    background-image: url('https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/stacked-gear.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
