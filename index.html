@@ -140,7 +140,7 @@
                         </div>
 
                         <div class="vip-image-container">
-                            <img src="https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/discover/pack-1.jpg" alt="VIP Package" class="vip-package-image">
+                            <img src="https://bodh1x.github.io/bdx-sport-hub/images/discover/pack-1.jpg" alt="VIP Package" class="vip-package-image">
                             <div class="comic-burst vip-burst">
                                 <span>EXCLUSIVE!</span>
                             </div>
@@ -234,23 +234,23 @@
         <div class="menu">
 
             <!-- <a href="best-spots.html" class="menu-item best-spots">
-                <img src="https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/Spots.jpg" alt="Best Spots">
+                <img src="https://bodh1x.github.io/bdx-sport-hub/images/Spots.jpg" alt="Best Spots">
             </a> -->
 
             <button class="menu-item best-spots" id="openEquipmentMenu">
-                <img src="https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/equipment.png" alt="Equipment">
+                <img src="https://bodh1x.github.io/bdx-sport-hub/images/equipment.png" alt="Equipment">
                 <span class="menu-text" id="equipmentBtn">Loading...</span>
             </button>
 
             <button class="menu-item select-sport" id="openMenuBox">
-                <img src="https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/gear.png" alt="Gear">
+                <img src="https://bodh1x.github.io/bdx-sport-hub/images/gear.png" alt="Gear">
                 <span class="menu-text" id="gearBtn">Loading...</span>
             </button>
             <button class="menu-item whats-new" id="openModal">
                 <div class="features-container">
-                    <img src="https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/features/skate.jpg" alt="Feature 1" class="feature-img">
-                    <img src="https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/features/bmx.jpg" alt="Feature 2" class="feature-img">
-                    <img src="https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/features/ski.jpg" alt="Feature 3" class="feature-img">
+                    <img src="https://bodh1x.github.io/bdx-sport-hub/images/features/skate.jpg" alt="Feature 1" class="feature-img">
+                    <img src="https://bodh1x.github.io/bdx-sport-hub/images/features/bmx.jpg" alt="Feature 2" class="feature-img">
+                    <img src="https://bodh1x.github.io/bdx-sport-hub/images/features/ski.jpg" alt="Feature 3" class="feature-img">
                 </div>
                 <span class="menu-text" id="whatsNewBtn">Loading...</span>
             </button>
@@ -258,10 +258,10 @@
 
         <!-- Sección de enlaces -->
         <div class="links">
-            <img src="https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/Logos/Discord.png"
+            <img src="https://bodh1x.github.io/bdx-sport-hub/images/Logos/Discord.png"
                 alt="Discord" class="social-icon discord-icon"
                 onclick="window.invokeNative('openUrl', 'https://discord.com/invite/PjN7AWqkpF');">
-            <img src="https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/Logos/YouTube.png"
+            <img src="https://bodh1x.github.io/bdx-sport-hub/images/Logos/YouTube.png"
                 alt="YouTube" class="social-icon youtube-icon"
                 onclick="window.invokeNative('openUrl', 'https://youtube.com/@bodhix?si=qqenaPcA3cVcXf0b');">
         </div>
@@ -275,7 +275,7 @@
         <div class="gear-background-decoration"></div>
 
         <!-- Logo -->
-        <img src="https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/Logos/logo.png" alt="Logo" id="logo">
+        <img src="https://bodh1x.github.io/bdx-sport-hub/images/Logos/logo.png" alt="Logo" id="logo">
 
         <!-- First Page (Category Selection) -->
         <div id="firstPage">
@@ -1075,14 +1075,14 @@
         // 🎨 FEATURE IMAGES RANDOMIZATION
         // ═══════════════════════════════════════════════════════════════
         const featureImages = [
-            'https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/features/bmx.jpg',
-            'https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/features/hoverboard.jpg',
-            'https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/features/iceskate.jpg',
-            'https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/features/rollers.jpg',
-            'https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/features/scooter.jpg',
-            'https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/features/skate.jpg',
-            'https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/features/ski.jpg',
-            'https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/features/snowboard.jpg'
+            'https://bodh1x.github.io/bdx-sport-hub/images/features/bmx.jpg',
+            'https://bodh1x.github.io/bdx-sport-hub/images/features/hoverboard.jpg',
+            'https://bodh1x.github.io/bdx-sport-hub/images/features/iceskate.jpg',
+            'https://bodh1x.github.io/bdx-sport-hub/images/features/rollers.jpg',
+            'https://bodh1x.github.io/bdx-sport-hub/images/features/scooter.jpg',
+            'https://bodh1x.github.io/bdx-sport-hub/images/features/skate.jpg',
+            'https://bodh1x.github.io/bdx-sport-hub/images/features/ski.jpg',
+            'https://bodh1x.github.io/bdx-sport-hub/images/features/snowboard.jpg'
         ];
 
         function getRandomFeatureImages() {
@@ -1743,8 +1743,10 @@
 
                 // Construct image path with organized folder structure
                 // imagePath already includes category folder + style subfolder if applicable
-                let fullPath = `nui://${resourceName}/nui/customs/${imagePath || ""}${prefix}${i}.png`;
+                // let fullPath = `nui://${resourceName}/nui/customs/${imagePath || ""}${prefix}${i}.png`;
 
+                let fullPath = `https://bodh1x.github.io/bdx-sport-hub/images/${imagePath || ""}${prefix}${i}.png`;
+                
                 debugLog(`Image ${i} path:`, fullPath);
 
                 img.src = fullPath;
@@ -2999,10 +3001,10 @@
                 <!-- Header with Badge -->
                 <div class="comic-header">
                     <!-- Star-shaped pack image (background layer) -->
-                    <img id="popupPackageImage" src="https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/discover/pack-1.jpg" alt="Package" class="comic-pack-bg-image">
+                    <img id="popupPackageImage" src="https://bodh1x.github.io/bdx-sport-hub/images/discover/pack-1.jpg" alt="Package" class="comic-pack-bg-image">
                     <!-- Logo and Badge row -->
                     <div class="comic-badge-row">
-                        <img src="https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/Logos/logo.png" alt="Logo" class="comic-header-logo">
+                        <img src="https://bodh1x.github.io/bdx-sport-hub/images/Logos/logo.png" alt="Logo" class="comic-header-logo">
                         <div class="comic-badge">✨ NEO XTREME</div>
                     </div>
                 </div>
@@ -3822,13 +3824,13 @@
 
             // Set star-shaped pack background image
             const imgElement = document.getElementById('popupPackageImage');
-            const imagePath = packageInfo.image ? 'https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/' + packageInfo.image : 'https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/discover/pack-1.jpg';
+            const imagePath = packageInfo.image ? 'https://bodh1x.github.io/bdx-sport-hub/images/' + packageInfo.image : 'https://bodh1x.github.io/bdx-sport-hub/images/discover/pack-1.jpg';
             console.log("Setting popup pack image to:", imagePath, "from packageInfo.image:", packageInfo.image);
 
             imgElement.src = imagePath;
             imgElement.onerror = function() {
                 console.log("Pack image failed to load, using default");
-                this.src = 'https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/discover/pack-1.jpg';
+                this.src = 'https://bodh1x.github.io/bdx-sport-hub/images/discover/pack-1.jpg';
                 this.onerror = null;
             };
 
