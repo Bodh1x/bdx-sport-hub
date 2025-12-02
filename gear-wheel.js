@@ -196,10 +196,10 @@ function createGearSegment(gear, index, angleStep) {
     // Create icon (image instead of emoji)
     const icon = document.createElement('img');
     icon.className = 'gear-icon';
-    icon.src = `images/wheel/${gear.icon || 'default.png'}`;
+    icon.src = `https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/wheel/${gear.icon || 'default.png'}`;
     icon.alt = gear.label || 'Unknown';
     icon.onerror = function() {
-        this.src = 'images/wheel/default.png'; // Fallback if image not found
+        this.src = 'https://raw.githubusercontent.com/Bodh1x/bdx-sport-hub/main/images/wheel/default.png'; // Fallback if image not found
     };
 
     iconContainer.appendChild(icon);
